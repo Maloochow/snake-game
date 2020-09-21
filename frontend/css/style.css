@@ -1,0 +1,32 @@
+
+div.sidebar {
+    display: inline-block;
+    height: 600px;
+    width: 300px;
+    background-color: yellow;
+}
+
+div.canvas-container {
+    position: relative;
+    height: 600px;
+    width: 800px;    
+}
+
+canvas#game {
+    position: absolute;
+    height: 600px;
+    width: 800px;
+}
+
+div.section {
+    display: block;
+    height: 100px;
+}
+
+div.card-container {
+    top: 30%;
+    left: 30%;
+    right: 30%;
+    position: absolute;
+    width: auto;
+}
