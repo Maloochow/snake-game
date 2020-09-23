@@ -8,6 +8,8 @@
         <script src="/js/models/element.js"></script>
         <script src="/js/models/snake.js"></script>
         <script src="/js/models/bean.js"></script>
+        <script src="/js/models/user.js"></script>
+        <script src="/js/api.js"></script>
         <link rel="stylesheet" href="/css/style.css">
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -22,27 +24,44 @@
         <div class="section"></div>
         <div class="container">
             <div class="row">
-                <div class="col s3">
+                <div class="col s4">
                     <ul class="collapsible">
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                            <div class="collapsible-header"><i class="material-icons">favorite</i>Best Score Ranking</div>
+                            <div class="collapsible-body" id="best-score-ranking"><span></span></div>
                         </li>
                         <li class="active">
-                            <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                            <div class="collapsible-header"><i class="material-icons">face</i>Current Player</div>
+                            <div class="collapsible-body" id="current-user">
+
+                            </div>
                         </li>
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                            <div class="collapsible-header"><i class="material-icons">question_answer</i>Instruction</div>
+                            <div class="collapsible-body"><span><b>SNAKE INSTRUCTIONS</b><br>
+                                Eat as many apples as you can to grow as long as possible. Use the arrow keys to control your snake and spacebar to pause. Be careful not to hit the wall or eat your tail!                    
+                                Coolmath’s snake game is different from most. When you eat an apple, your tail grows by four blocks instead of the usual one. The snake also moves quicker than the classic game, so you’ll have to think fast! How long can you survive?
+                                <br>     
+                                <br><b>SNAKE TIPS & TRICKS</b><br>
+                                Master the sharp turns. A good trick to have under your belt as you play snake is being able to turn on a dime. Since the snake is so speedy, crashing can happen before you can react. The more you play, try to master those sharp turns to narrowly escape hitting a wall. 
+                                Be patient. It can be tempting to grab the apples as fast as you can, but if you narrowly miss an apple, it's better to wait until your snake tail has moved away from it before going in for another pass. 
+                                Hug the wall. As you play snake, your tail will keep growing and growing with every apple you eat. An easy trick to avoid crashing into the walls or your tail is to trace the perimeter of the screen. This keeps the rest of the field open and easy to navigate. 
+                                Utilize the zig-zag. The snake’s ultimate move! If you find your tail getting a bit too long, quickly shift from side to side to create a zig-zag pattern on the screen. Moving this way will buy you some time as the rest of the tail catches up. 
+                                <br>
+                                <br><b>WHAT YOU LEARN FROM PLAYING SNAKE</b><br>
+                                Playing snake can help improve hand-eye coordination and reaction time, since you'll have to act fast to keep the snake from crashing.</span></div>
                         </li>
                     </ul>
                 </div>
-                <div class="col s9">
+                <div class="col s8">
                     <div class="canvas-container">
                     <canvas id="game" width="800" height="600" style="border:10px solid darkblue;">
                     </canvas>
                     <div class="card-container"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col s10" id="user-name"></div>
+                        <div class="col s2" id="user-best"></div>
                     </div>
                 </div>
             </div>

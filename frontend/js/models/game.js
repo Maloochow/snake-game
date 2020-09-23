@@ -1,13 +1,32 @@
 class Game {
+    static all = []
+
     constructor() {
         this.score = 0;
-        this.setStartScreen()
+        this.user = user().name
+        Game.all.push(this)
+        Snake.all = []
+    }
+
+    static start() {
+        let game = new Game
+        game.setStartScreen()
+    }
+
+    set playerLoggedIn(status) {
+        return this.playerLoggedIn = status
+    }
+
+    get playerLoggedIn() {
+        return this.playerLoggedIn
     }
 
     setStartScreen() {
         this.setBackground()
         let cardContent = `Use the arrow keys on your keyboard to control the snake (orange)`
         this.createCard("Welcome to Snake", cardContent, "Start Game")
+        usernameDiv().innerText = `Current Player: ${this.user}`
+        userbestDiv().innerText = `Best: ${user().games[0]}`
         this.startGame()  
     }
 
@@ -28,13 +47,16 @@ class Game {
 
     over(score) {
         this.score = score
+        patchNewScore(user().name, score)
         this.setOverScreen()
     }
     
     setOverScreen() {
         this.setBackground();
         let cardContent = `Length: ${this.score}`
-        this.createCard("Game Over", cardContent, "Play Again", "/")
+        this.createCard("Game Over", cardContent, "Play Again")
+        new Game
+        this.startGame()
     }
 
     createCard(title, content, button, link) {
@@ -67,5 +89,10 @@ class Game {
             cardText.href = link
         }
         cardActionDiv.appendChild(cardText)
+    }
+
+    static get last() {
+        let i = Game.all.length
+        return Game.all[i-1]
     }
 }

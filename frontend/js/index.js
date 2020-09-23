@@ -1,4 +1,3 @@
-
 const animate = window.requestAnimationFrame
 
 const GAME_HEIGHT = 600;
@@ -11,13 +10,25 @@ const RIGHTKEY = 39;
 const posx = () => ((Math.random() * 31).toFixed())*25;
 const posy = () => ((Math.random() * 23).toFixed())*25;
 
-let canvas, ctx, bean, request, game;
+let canvas, ctx, bean, request;
 const snake = () => Snake.first
+const user = () => User.last
+const game = () => Game.last
+const usernameDiv = () => document.getElementById("user-name")
+const userbestDiv = () => document.getElementById("user-best")
+const currentUserDiv = () => document.getElementById("current-user")
+const bestScoreDiv = () => document.getElementById("best-score-ranking")
 
 document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems);
     canvas = document.querySelector('canvas');
     ctx = canvas.getContext('2d');
-    game = new Game
+    User.setSignInTable()
+    new User
+    user().name = "Anonymous"
+    user().id = 2
+    Game.start()
 });
 
 function newBean() {
@@ -99,7 +110,7 @@ function draw() {
     if (isAlive()) {
         animate(draw)
     } else {
-        game.over(Snake.all.length);
+        game().over(Snake.all.length);
     }
 }
 
