@@ -64,7 +64,7 @@ function setCurrentUserBoard() {
         ul.appendChild(li)
         userbestDiv().innerText = "Best: 0"
     } else {
-        for (const score of user().games) {
+        for (const score of user().games.slice(0, 15)) {
             let li = document.createElement("li")
             li.innerText = score
             ul.appendChild(li)
@@ -74,8 +74,8 @@ function setCurrentUserBoard() {
     currentUserDiv().appendChild(span)
     currentUserDiv().appendChild(ul)
     usernameDiv().innerText = `Current Player: ${user().name}`
-    setLogOutBtn()
-    setDeleteBtn()
+    user().name === "Anonymous" ? null : setLogOutBtn()
+    user().name === "Anonymous" ? null : setDeleteBtn()
 }
 
 function setLogOutBtn() {

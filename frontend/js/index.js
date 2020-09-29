@@ -20,8 +20,11 @@ const currentUserDiv = () => document.getElementById("current-user")
 const bestScoreDiv = () => document.getElementById("best-score-ranking")
 
 document.addEventListener('DOMContentLoaded', function() {
+    //from materialize.css
     var elems = document.querySelectorAll('.collapsible');
     var instances = M.Collapsible.init(elems);
+
+    //setup the game
     canvas = document.querySelector('canvas');
     ctx = canvas.getContext('2d');
     User.setSignInTable()
@@ -100,7 +103,7 @@ function setPauseTime() {
     } else if (Snake.all.length <= 50) {
         Snake.pauseTime = 100
     } else if (Snake.all.length > 50) {
-        Snake.pauseTime = 750
+        Snake.pauseTime = 50
     }
 }
 
